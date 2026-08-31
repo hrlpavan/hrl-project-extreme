@@ -4,7 +4,7 @@ from .agent import HierarchicalAgent
 
 def train_hrl(num_episodes: int = 100, log_interval: int = 10):
     print("=" * 65)
-    print(" 🧠 HRL PROJECT EXTREME: HIERARCHICAL REINFORCEMENT LEARNING ")
+    print("   HRL PROJECT EXTREME: HIERARCHICAL REINFORCEMENT LEARNING   ")
     print("=" * 65)
 
     env = SparseGoalMazeEnv(grid_size=12, max_steps=100)
@@ -51,8 +51,8 @@ def train_hrl(num_episodes: int = 100, log_interval: int = 10):
     total_time = time.time() - t_start
     final_sr = (sum(success_history[-20:]) / min(20, len(success_history))) * 100.0
     print("\n" + "=" * 65)
-    print(f"  ✓ Training completed in {total_time:.2f}s across {num_episodes} episodes")
-    print(f"  ✓ Final 20-Episode Success Rate: {final_sr:.1f}%")
+    print(f"  [STATUS] Training completed in {total_time:.2f}s across {num_episodes} episodes")
+    print(f"  [METRIC] Final 20-Episode Success Rate: {final_sr:.1f}%")
     print("=" * 65)
 
 if __name__ == "__main__":

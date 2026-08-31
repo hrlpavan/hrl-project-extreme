@@ -28,7 +28,7 @@ def evaluate_agent(episodes: int = 5):
             obs = next_obs
             step += 1
 
-        print(f"  Result: {'GOAL REACHED! 🎯' if info['is_success'] else 'Max Steps Reached'}")
+        print(f"  Result: {'[GOAL REACHED]' if info['is_success'] else '[MAX STEPS REACHED]'}")
         print(f"  Steps: {step} | Final Distance to Goal: {info['dist_to_goal']:.2f}")
         print(f"  Trajectory path points: {positions[:4]} ... {positions[-2:]}")
 
