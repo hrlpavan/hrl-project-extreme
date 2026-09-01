@@ -628,33 +628,40 @@
     }
 
     /* Dedicated Space for Legend (Outside Canvas Box) */
-    /* Dedicated Space for Legend (Outside Canvas Box) */
     .arena-legend-bar {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      background: #121216;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px 14px;
+      background: #141418;
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 12px;
-      padding: 10px 18px;
+      padding: 12px 16px;
       margin-top: 14px;
-      font-size: 12px;
-      color: #a1a1aa;
-      flex-wrap: wrap;
+    }
+    @media (min-width: 680px) {
+      .arena-legend-bar {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 8px 12px;
+      }
     }
     .legend-item {
       display: flex;
       align-items: center;
-      gap: 7px;
+      gap: 6px;
+      font-size: 12px;
       font-weight: 500;
+      color: #a1a1a6;
+      white-space: nowrap;
+      font-family: var(--font-sans);
     }
     .legend-item span {
-      color: #e2e8f0;
+      color: #f5f5f7;
+      font-weight: 500;
+      letter-spacing: -0.01em;
     }
     .legend-dot {
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       display: inline-block;
       flex-shrink: 0;
@@ -1671,19 +1678,19 @@
             </div>
           </div>
 
-          <!-- Dedicated Space Assigned for Legend Outside the Arena Canvas -->
+          <!-- Dedicated Apple Symmetrical Legend Bar -->
           <div class="arena-legend-bar">
             <div class="legend-item">
               <span class="legend-dot" style="background: #2997ff;"></span>
-              <span>Agent <i>s<sub>t</sub></i></span>
+              <span>Agent</span>
             </div>
             <div class="legend-item">
               <span class="legend-dot" style="background: #a855f7;"></span>
-              <span>Sub-Goal <i>g<sub>t</sub></i></span>
+              <span>Sub-Goal</span>
             </div>
             <div class="legend-item">
               <span class="legend-dot" style="background: #ff9f0a;"></span>
-              <span>Force <b>a</b><sub>t</sub></span>
+              <span>Force Vector</span>
             </div>
             <div class="legend-item">
               <span class="legend-dot" style="background: #30d158;"></span>
@@ -1691,7 +1698,7 @@
             </div>
             <div class="legend-item">
               <span class="legend-dot" style="background: rgba(41,151,255,0.4); border: 1px dashed #2997ff;"></span>
-              <span>Reachable <i>R<sub>c</sub></i>(<i>s</i>)</span>
+              <span>Reachable Set</span>
             </div>
             <div class="legend-item">
               <span class="legend-dot" style="background: #c084fc; border-radius: 2px;"></span>
@@ -1702,11 +1709,11 @@
           <!-- Symmetrical 2x2 Telemetry Cards -->
           <div class="telemetry-grid">
             <div class="telemetry-card">
-              <div class="telemetry-tag">Subgoal Step</div>
+              <div class="telemetry-tag">Sub-Goal Horizon</div>
               <div class="telemetry-val" id="step-in-sg">0 / 8</div>
             </div>
             <div class="telemetry-card">
-              <div class="telemetry-tag">Intrinsic Motivation <i>r<sub>i</sub></i></div>
+              <div class="telemetry-tag">Intrinsic Motivation</div>
               <div class="telemetry-val" id="r-intrinsic">+0.000</div>
             </div>
             <div class="telemetry-card">
@@ -1714,8 +1721,8 @@
               <div class="telemetry-val" id="dist-goal">0.00 m</div>
             </div>
             <div class="telemetry-card">
-              <div class="telemetry-tag">Reachability Feasibility</div>
-              <div class="telemetry-val" id="reach-feasibility">100% <i>R<sub>c</sub></i>(<i>s</i>)</div>
+              <div class="telemetry-tag">Reachability Envelope</div>
+              <div class="telemetry-val" id="reach-feasibility">100% Feasible</div>
             </div>
           </div>
         </div>
@@ -2607,7 +2614,7 @@ for episode in range(1000):
       if (data.use_reachability !== undefined) useReachability = data.use_reachability;
 
       const feasPct = Math.round(reachabilityFeasibility * 100);
-      document.getElementById('reach-feasibility').innerHTML = `${feasPct}% <i>R<sub>c</sub></i>(<i>s</i>)`;
+      document.getElementById('reach-feasibility').innerText = `${feasPct}% Feasible`;
     }
 
     function appendChartData(data) {
