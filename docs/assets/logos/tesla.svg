@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <path d="M 100 8 C 114 8 135 12 145 18 L 140 23 C 132 18 115 14 100 14 C 85 14 68 18 60 23 L 55 18 C 65 12 86 8 100 8 Z" fill="#E82127"/>
+  <path d="M 100 18 C 109 18 123 20 130 24 L 126 28 C 120 25 109 23 100 23 C 91 23 80 25 74 28 L 70 24 C 77 20 91 18 100 18 Z" fill="#E82127"/>
+  <path d="M 97 26 L 103 26 L 103 48 C 103 51 101 54 97 54 L 97 49 C 99 49 100 48 100 46 L 100 28 L 97 28 Z" fill="#E82127"/>
+  <text x="35" y="54" font-family="'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="700" letter-spacing="4" fill="#1D1D1F">TESLA</text>
+</svg>
